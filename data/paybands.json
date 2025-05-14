@@ -1,0 +1,42 @@
+{
+    "Band 5": {
+        "entry": {"salary": 29970, "years": 2},
+        "intermediate": {"salary": 32324, "years": 2},
+        "top": {"salary": 36483}
+    },
+    "Band 6": {
+        "entry": {"salary": 37338, "years": 2},
+        "intermediate": {"salary": 39405, "years": 3},
+        "top": {"salary": 44962}
+    },
+    "Band 7": {
+        "entry": {"salary": 46148, "years": 2},
+        "intermediate": {"salary": 48526, "years": 3},
+        "top": {"salary": 52809}
+    },
+    "Band 8a": {
+        "entry": {"salary": 53755, "years": 2},
+        "intermediate": {"salary": 56454, "years": 3},
+        "top": {"salary": 60504}
+    },
+    "Band 8b": {
+        "entry": {"salary": 62215, "years": 2},
+        "intermediate": {"salary": 66246, "years": 3},
+        "top": {"salary": 72293}
+    },
+    "Band 8c": {
+        "entry": {"salary": 74290, "years": 2},
+        "intermediate": {"salary": 78814, "years": 3},
+        "top": {"salary": 85601}
+    },
+    "Band 8d": {
+        "entry": {"salary": 88168, "years": 2},
+        "intermediate": {"salary": 93572, "years": 3},
+        "top": {"salary": 101677}
+    },
+    "Band 9": {
+        "entry": {"salary": 105385, "years": 2},
+        "intermediate": {"salary": 111740, "years": 3},
+        "top": {"salary": 121271}
+    }
+}

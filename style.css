@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html, body, [class*="css"] {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
+  /* Leave color unset to respect config.toml */
+}
+
+.title {
+  font-family: 'Aptos', sans-serif;
+  font-size: 14pt;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: 'Aptos', sans-serif;
+  font-size: 12pt;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt;
+}
+
+/* Sidebar customization */
+[data-testid=stSidebar] {
+  background-color: #0a5e9e !important;
+}
+
+[data-testid=stSidebar] * {
+  color: #f7f7f7 !important;
+}
