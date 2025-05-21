@@ -11,4 +11,4 @@
 - Workforce
 - Info Governance
 
-![alt text](assets\app_image.png)
+![alt text](assets/app_image.png)
