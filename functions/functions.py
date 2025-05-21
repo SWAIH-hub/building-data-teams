@@ -76,7 +76,7 @@ def build_team_tab(team_name: str,team_col:dict ) -> float:
 
     container3 = st.container(border=True)
     overall_cost = df["Total Cost"].sum()
-    container3.markdown(f"### 💷 Overall :blue-background[{team_name} Team] Total Cost (year one) :blue-background[£**{overall_cost:,.0f}**]")
+    container3.markdown(f"### Overall :blue-background[{team_name} Team] Total Cost (year one) :blue-background[£**{overall_cost:,.0f}**]")
     # print(df)
     
     with col3:
@@ -118,21 +118,21 @@ def calc_budget_percentage(team, totals, overall_budget, team_col:dict):
     elif remaining_percent < 0:
         values_dict["Overspend"] = abs(remaining_percent)
     
-    colors = []
+    colours = []
     for team_name in values_dict.keys():
         if team_name == "Remaining":
-            colors.append("lightgrey")
+            colours.append("lightgrey")
         elif team_name == "Overspend":
-            colors.append("red")
+            colours.append("red")
         else:
-            colors.append(team_col.get(team_name, "lightgrey"))
+            colours.append(team_col.get(team_name, "lightgrey"))
             
     try:
         fig = plt.figure(
             FigureClass=Waffle,
             rows=5,
             values=values_dict,
-            colors=colors,
+            colors=colours,
             title={'label': 'Budget Allocation (%)', 'loc': 'center'},
             legend={
                 'loc': 'upper left', 
@@ -162,7 +162,7 @@ def calc_budget_percentage(team, totals, overall_budget, team_col:dict):
 def create_org_diagram(df, team_colour):
     G = nx.DiGraph()
     node_labels = {}
-    node_colors = []
+    node_colours = []
     node_sizes = []
     pos = {}
 
@@ -181,7 +181,7 @@ def create_org_diagram(df, team_colour):
 
         node_labels[node_id] = f"{band}\n({int(total_qty)} ppl)\n{team_name}"
         G.add_node(node_id)
-        node_colors.append(team_colour)
+        node_colours.append(team_colour)
         node_sizes.append(1500)
 
         pos[node_id] = (0, -i * 3)  # y spacing of 3 units per level
@@ -200,7 +200,7 @@ def create_org_diagram(df, team_colour):
         labels=node_labels,
         arrows=True,
         node_size=node_sizes,
-        node_color=node_colors,
+        node_color=node_colours,
         font_size=7,
         edge_color="gray",
         ax=ax,
@@ -221,7 +221,7 @@ def create_org_diagram(df, team_colour):
 def create_combined_org_diagram(df, team_colours):
     G = nx.DiGraph()
     node_labels = {}
-    node_colors = []
+    node_colours = []
     node_sizes = []
     pos = {}
 
@@ -248,7 +248,7 @@ def create_combined_org_diagram(df, team_colours):
 
             node_labels[node_id] = f"{band}\n({int(total_qty)} ppl)\n{team}"
             G.add_node(node_id)
-            node_colors.append(colour)
+            node_colours.append(colour)
             node_sizes.append(1500)
 
             pos[node_id] = (x_offset, 10 - i * 2)
@@ -268,7 +268,7 @@ def create_combined_org_diagram(df, team_colours):
         labels=node_labels,
         arrows=True,
         node_size=node_sizes,
-        node_color=node_colors,
+        node_color=node_colours,
         font_size=6,
         edge_color="gray",
         ax=ax,
