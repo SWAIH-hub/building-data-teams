@@ -11,9 +11,9 @@ st.logo("assets\SWAIH_logo.png", size="large", ) # SWAIH / Data Hub Logo
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-st.title("Budget Byte - Helping Plan Your Data Teams")
+st.title("Budget Byte - Supporting Better Planning for Healthcare Data Teams")
 
-st.header(":muscle: Build Your Data Teams!")
+st.header(":muscle: Build Your Healthcare Data Teams!")
 
 # with st.sidebar:
 #     st.button("Test Primary Colour")
