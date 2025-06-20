@@ -1,7 +1,6 @@
 import streamlit as st
 import warnings 
 import pandas as pd
-from functions import functions
 
 warnings.filterwarnings("ignore")
 

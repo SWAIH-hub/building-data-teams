@@ -1,11 +1,5 @@
 import streamlit as st
-import pandas as pd
-import json
-import os
-import streamlit as st
 import warnings 
-import pandas as pd
-from functions import functions
 
 warnings.filterwarnings("ignore")
 
