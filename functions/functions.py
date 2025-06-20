@@ -76,7 +76,7 @@ def build_team_tab(team_name: str,team_col:dict ) -> float:
 
     container3 = st.container(border=True)
     overall_cost = df["Total Cost"].sum()
-    container3.markdown(f"### Overall :blue-background[{team_name} Team] Total Cost (year one) :blue-background[£**{overall_cost:,.0f}**]")
+    container3.markdown(f"### Overall :blue-background[{team_name} Team] Total Cost: :blue-background[£**{overall_cost:,.0f}**]")
     # print(df)
     
     with col3:
