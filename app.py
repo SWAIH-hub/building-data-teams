@@ -4,6 +4,7 @@ import pandas as pd
 
 warnings.filterwarnings("ignore")
 
+
 st.set_page_config(page_title="Data Teams", page_icon=":muscle:", layout="wide")
 # LOGO_FILE = "assets/SWAIH_logo.png"
 # st.logo(LOGO_FILE)
