@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Stlite App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.63.1/build/stlite.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.63.1/build/stlite.js"></script>
+    <script>
+      stlite.mount(
+        {
+        requirements: ["simpy"], // Packages to install
+        entrypoint: "app.py",
+        files: {
+      "app.py":`
+import streamlit as st
+import warnings 
+import pandas as pd
+
+warnings.filterwarnings("ignore")
+
+st.set_page_config(page_title="Budget Bytes", page_icon=":muscle:", layout="wide")
+st.logo("assets\SWAIH_logo.png", size="large", ) # SWAIH / Data Hub Logo 
+
+with open("style.css") as css:
+    st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
+
+
+pg = st.navigation(
+
+    [st.Page("homepage.py",
+             title="Homepage",
+             icon=":material/cottage:"),
+    st.Page("manual_build.py",
+             title="Manually Build Your Teams",
+             icon=":material/settings:"),
+    st.Page("current_team.py",
+             title="Upload Your Current Team",
+             icon=":material/publish:"
+            ),     
+    st.Page("derive_team.py",
+             title="Team Derivation Wizard",
+             icon=":material/star:"
+            ),                                                   
+     
+     ]
+     )
+
+pg.run()
+`,
+"homepage.py": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/homepage.py"
+      },
+"manual_build.py": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/manual_build.py"
+      },
+"current_team.py": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/current_team.py"
+      },
+"derive_team.py": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/derive_team.py"
+      },
+}
+        },
+        document.getElementById("root"),
+      );
+    </script>
+  </body>
+</html>
