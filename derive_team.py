@@ -134,21 +134,14 @@ if cluster_df_rows:
     }
     functions.create_combined_org_diagram(cluster_df, team_colours)
     
-    # cost summary
     total_cost = cluster_df["Total Cost"].sum()
     st.markdown(f"## Overall Estimated Total Cost: :blue-background[£**{total_cost:,.0f}**]")
         # st.metric("Total Estimated Annual Cost", f"£{total_cost:,.0f}")
 
-    # Waffle chart
     st.markdown("## Team Composition Breakdown")
 
-    # Calculate total cost per team
     team_costs = cluster_df.groupby("Team")["Total Cost"].sum()
-
-    # Overall total cost (sum of all teams)
     overall_total_cost = team_costs.sum()
-
-    # Calculate percentages per team (rounded)
     team_percentages = (team_costs / overall_total_cost * 100).round(0)
     colours = [team_colours.get(team, "lightgrey") for team in team_percentages.index]
     legend_labels = [f"{team} ({int(percent)}%)" for team, percent in team_percentages.items()]

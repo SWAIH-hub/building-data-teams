@@ -31,6 +31,8 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(page_title="Data Teams", page_icon=":muscle:", layout="wide")
 
+st.logo("assets/SWAIH_logo.png", size="Large")
+
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
@@ -69,11 +71,17 @@ pg.run()
         url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/derive_team.py"
       },
 "style.css": {
-  url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/style.css"
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/style.css"
       },
-"functions.py": {
-  url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/functions/functions.py"
-      } 
+"functions/functions.py": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/functions/functions.py"
+      },
+"data/paybands.json": {
+        url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/data/paybands.json"
+      },
+"assets/SWAIH_logo.png": {
+       url: "https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/assets/SWAIH_logo.png"
+      }  
 }
         },
         document.getElementById("root"),
