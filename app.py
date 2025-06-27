@@ -1,12 +1,13 @@
 import streamlit as st
 import warnings 
 import pandas as pd
+from functions.functions import add_logo
 
 warnings.filterwarnings("ignore")
 
 st.set_page_config(page_title="Data Teams", page_icon=":muscle:", layout="wide")
 
-st.logo("assets/SWAIH_logo.png", size="Large")
+add_logo()
 
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)

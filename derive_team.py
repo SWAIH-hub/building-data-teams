@@ -6,7 +6,8 @@ from pywaffle import Waffle
 import matplotlib.pyplot as plt
 
 
-st.title("Team Derivation Wizard")
+st.title(":material/star: Team Derivation Wizard")
+st.header("Allow the wizard to guide you through a suggested Team Structure")
 st.markdown("Answer a few questions and we'll build a draft data team for you!")
 
 def get_salary(band, level):
@@ -41,8 +42,10 @@ selected_teams = st.multiselect("Which teams do you need?", options=list(team_op
 cluster_df_rows = []
 
 for team in selected_teams:
+    st.markdown("---")
     st.subheader(team)
     st.markdown("✅ This team will automatically get one Band 8A lead.")
+    # st.checkbox("✅ This team will automatically get one Band 8A lead.")
 
     cluster_df_rows.append({
         "Team": team,
@@ -75,6 +78,7 @@ if len(selected_teams) >= 2:
     st.markdown("---")
     st.subheader("Leadership")
     st.markdown("You've selected multiple teams. We'll add a Band 9 to oversee them.")
+    # st.checkbox("You've selected multiple teams. We'll add a Band 9 to oversee them.")
 
     cluster_df_rows.append({
         "Team": "Leadership",
