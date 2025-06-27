@@ -1,17 +1,16 @@
 import streamlit as st
 import warnings 
 import pandas as pd
+from functions.functions import add_logo
 
 warnings.filterwarnings("ignore")
 
-st.set_page_config(page_title="Budget Bytes", page_icon=":muscle:", layout="wide")
-LOGO_FILE = "assets/SWAIH_logo.png"
-st.logo(LOGO_FILE)
+st.set_page_config(page_title="Data Teams", page_icon=":muscle:", layout="wide")
 
+add_logo()
 
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
-
 
 pg = st.navigation(
 

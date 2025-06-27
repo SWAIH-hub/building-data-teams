@@ -6,7 +6,8 @@ from pywaffle import Waffle
 import matplotlib.pyplot as plt
 
 
-st.title("Team Derivation Wizard")
+st.title(":material/star: Team Derivation Wizard")
+st.header("Allow the wizard to guide you through a suggested Team Structure")
 st.markdown("Answer a few questions and we'll build a draft data team for you!")
 
 def get_salary(band, level):
@@ -41,8 +42,10 @@ selected_teams = st.multiselect("Which teams do you need?", options=list(team_op
 cluster_df_rows = []
 
 for team in selected_teams:
+    st.markdown("---")
     st.subheader(team)
     st.markdown("✅ This team will automatically get one Band 8A lead.")
+    # st.checkbox("✅ This team will automatically get one Band 8A lead.")
 
     cluster_df_rows.append({
         "Team": team,
@@ -75,6 +78,7 @@ if len(selected_teams) >= 2:
     st.markdown("---")
     st.subheader("Leadership")
     st.markdown("You've selected multiple teams. We'll add a Band 9 to oversee them.")
+    # st.checkbox("You've selected multiple teams. We'll add a Band 9 to oversee them.")
 
     cluster_df_rows.append({
         "Team": "Leadership",
@@ -134,21 +138,14 @@ if cluster_df_rows:
     }
     functions.create_combined_org_diagram(cluster_df, team_colours)
     
-    # cost summary
     total_cost = cluster_df["Total Cost"].sum()
     st.markdown(f"## Overall Estimated Total Cost: :blue-background[£**{total_cost:,.0f}**]")
         # st.metric("Total Estimated Annual Cost", f"£{total_cost:,.0f}")
 
-    # Waffle chart
     st.markdown("## Team Composition Breakdown")
 
-    # Calculate total cost per team
     team_costs = cluster_df.groupby("Team")["Total Cost"].sum()
-
-    # Overall total cost (sum of all teams)
     overall_total_cost = team_costs.sum()
-
-    # Calculate percentages per team (rounded)
     team_percentages = (team_costs / overall_total_cost * 100).round(0)
     colours = [team_colours.get(team, "lightgrey") for team in team_percentages.index]
     legend_labels = [f"{team} ({int(percent)}%)" for team, percent in team_percentages.items()]

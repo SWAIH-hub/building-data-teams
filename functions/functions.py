@@ -7,7 +7,7 @@ import networkx as nx
 
 def build_team_tab(team_name: str,team_col:dict ) -> float:
     json_path: str = "data/paybands.json"
-    col1, col2, col3 = st.columns([6,2,4])
+    col1, col2 = st.columns([7,3])
 
     with col1:
         container1 = st.container(border=True)
@@ -29,9 +29,9 @@ def build_team_tab(team_name: str,team_col:dict ) -> float:
                 })
 
             df = pd.DataFrame(rows)
-            df = df.iloc[::-1].reset_index(drop=True)
+            df = df.iloc[::-1].reset_index(drop=True)            
             display_df = df.copy()
-
+                        
             for col in ["Entry Salary", "Intermediate Salary", "Top Salary"]:
                 display_df[col] = display_df[col].apply(lambda x: f"£{x:,.0f}")
 
@@ -57,7 +57,8 @@ def build_team_tab(team_name: str,team_col:dict ) -> float:
                 df["Intermediate Salary"] * df["Intermediate Qty"] +
                 df["Top Salary"] * df["Top Qty"]
             )
-        
+            
+            
         except FileNotFoundError:
             st.error(f"File not found: {json_path}")
         except json.JSONDecodeError:
@@ -66,20 +67,21 @@ def build_team_tab(team_name: str,team_col:dict ) -> float:
             st.error(f"An unexpected error occurred: {e}")
             return 0.0
 
-    with col2:
-        container2 = st.container(border=True)
+    # with col2:
+    #     pass
+    #     container2 = st.container(border=True)
 
-        container2.markdown("### Total Cost by Band")
-        container2.dataframe(df[["Band", "Total Cost"]].assign(**{
-            "Total Cost": lambda d: d["Total Cost"].apply(lambda x: f"£{x:,.0f}")
-        }), hide_index=True)
+    #     container2.markdown("### Total Cost by Band")
+    #     container2.dataframe(df[["Band", "Total Cost"]].assign(**{
+    #         "Total Cost": lambda d: d["Total Cost"].apply(lambda x: f"£{x:,.0f}")
+    #     }), hide_index=True)
 
     container3 = st.container(border=True)
     overall_cost = df["Total Cost"].sum()
     container3.markdown(f"### Overall :blue-background[{team_name} Team] Total Cost: :blue-background[£**{overall_cost:,.0f}**]")
     # print(df)
     
-    with col3:
+    with col2:
         chart_container = st.container(border=True)
         with chart_container:
             create_org_diagram(df,team_col) # team org chart
@@ -278,3 +280,35 @@ def create_combined_org_diagram(df, team_colours):
     ax.set_axis_off()
     plt.title("Combined Organisational Structure by Band and Team", fontsize=10)
     st.pyplot(fig)
+    
+    
+def add_logo():
+    '''
+    Add a logo at the top of the page navigation sidebar
+
+    Approach written by blackary on
+    https://discuss.streamlit.io/t/put-logo-and-title-above-on-top-of-page-navigation-in-sidebar-of-multipage-app/28213/5
+    
+    '''
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/assets/SWAIH_logo.png);
+                background-repeat: no-repeat;
+                padding-top: 190px;
+                background-position: 10px 0px;
+                background-size: 310px 180px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                padding-left: 10px;
+                margin-top: 10px;
+                font-size: 10px;
+                position: relative;
+                top: 10px;
+            }
+
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )

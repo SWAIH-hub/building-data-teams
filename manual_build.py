@@ -8,10 +8,8 @@ warnings.filterwarnings("ignore")
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-st.title("Manually Build Your Healthcare Data Teams")
-
-st.header(":muscle: Build Your Healthcare Data Teams!")
-
+st.title(":material/settings: Build Your Healthcare Data Teams")
+st.header("Focus on shaping what you might like your team to look like")
 # with st.sidebar:
 #     st.button("Test Primary Colour")
 

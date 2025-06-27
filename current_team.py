@@ -1,7 +1,6 @@
 import streamlit as st
 import warnings 
 import pandas as pd
-from functions import functions
 
 warnings.filterwarnings("ignore")
 
@@ -9,10 +8,8 @@ warnings.filterwarnings("ignore")
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-st.title("Your Current Healthcare Data Teams")
-
-st.header("Upload Your Current Teams..")
-
+st.title(":material/publish: Upload Your Current Healthcare Data Teams")
+st.header("Focus on reviewing your current Team Stucture")
 # with st.sidebar:
 #     st.button("Test Primary Colour")
 
