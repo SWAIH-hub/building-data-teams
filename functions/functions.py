@@ -296,8 +296,9 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/assets/SWAIH_logo.png);
                 background-repeat: no-repeat;
-                padding-top: 350px;
+                padding-top: 190px;
                 background-position: 10px 0px;
+                background-size: 310px 180px;
             }
             [data-testid="stSidebarNav"]::before {
                 padding-left: 10px;
@@ -311,4 +312,3 @@ def add_logo():
         """,
         unsafe_allow_html=True,
     )
-    # url(https://raw.githubusercontent.com/SWAIH-hub/building-data-teams/refs/heads/main/assets/SWAIH_logo.png);
