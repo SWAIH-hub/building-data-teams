@@ -5,8 +5,20 @@ from functions import functions
 from pywaffle import Waffle
 import matplotlib.pyplot as plt
 
+# Import Material Icons font
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-st.title(":material/star: Team Derivation Wizard")
+    .material-icon {
+        font-family: 'Material Icons';
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown('<h1><span class="material-icon">star</span>Team Derivation Wizard</h1>', unsafe_allow_html=True)
 st.header("Allow the wizard to guide you through a suggested Team Structure")
 st.markdown("Answer a few questions and we'll build a draft data team for you!")
 

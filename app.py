@@ -5,7 +5,7 @@ from functions.functions import add_logo
 
 warnings.filterwarnings("ignore")
 
-st.set_page_config(page_title="Data Teams", page_icon=":muscle:", layout="wide")
+st.set_page_config(page_title="Data Teams", layout="wide")
 
 add_logo()
 

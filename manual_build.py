@@ -5,10 +5,23 @@ from functions import functions
 
 warnings.filterwarnings("ignore")
 
+# Import Material Icons font
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+    .material-icon {
+        font-family: 'Material Icons';
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-st.title(":material/settings: Build Your Healthcare Data Teams")
+st.markdown('<h1><span class="material-icon">settings</span>Build Your Healthcare Data Teams</h1>', unsafe_allow_html=True)
 st.header("Focus on shaping what you might like your team to look like")
 # with st.sidebar:
 #     st.button("Test Primary Colour")
@@ -26,8 +39,6 @@ Budget = st.slider(
 if 'all_tabs_total' not in st.session_state:
     st.session_state.all_tabs_total = 0
     
-# st.button("Test Primary Colour")
-
 tabs_total = []
 tab_list = [
     "Data Analytics",

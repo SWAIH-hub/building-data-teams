@@ -4,11 +4,23 @@ import pandas as pd
 
 warnings.filterwarnings("ignore")
 
-# st.set_page_config(page_title="Budget Bytes", page_icon=":muscle:", layout="wide")
+# Import Material Icons font
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+    .material-icon {
+        font-family: 'Material Icons';
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-st.title(":material/publish: Upload Your Current Healthcare Data Teams")
+st.markdown('<h1><span class="material-icon">publish</span>Upload Your Current Healthcare Data Teams</h1>', unsafe_allow_html=True)
 st.header("Focus on reviewing your current Team Stucture")
 # with st.sidebar:
 #     st.button("Test Primary Colour")
